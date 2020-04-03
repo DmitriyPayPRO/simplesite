@@ -6,7 +6,10 @@
 <h2>Рубрика: {{ current_rubric.name }}</h2>
 {% for bb in bbs %}
 <div>
-    <h2>{{ bb.title }}</h2>
+    <h2><a href="{% url 'detail' pk=bb.pk %}">{{ bb.title }}</a>
+        <a href="{% url 'edit' pk=bb.pk %}">Редактировать</a>
+        <a href="{% url 'delete' pk=bb.pk %}">Удалить</a>
+    </h2>
     <p>{{ bb.content }}</p>
     <p>{{ bb.published|date:"d.m.Y H:i:s" }}</p>
 </div>
