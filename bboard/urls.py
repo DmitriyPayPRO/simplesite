@@ -10,10 +10,10 @@ from .views import BbEditView
 from .views import BbDeleteView
 
 urlpatterns = [
+    path('detail/<int:pk>/', BbDetailView.as_view(), name='detail'),
     path('delete/<int:pk>/', BbDeleteView.as_view(), name='delete'),
     path('edit/<int:pk>/', BbEditView.as_view(), name='edit'),
-    path('detail/<int:pk>/', BbDetailView.as_view(), name='detail'),
     path('add/', BbAddView.as_view(), name='add'),
     path('<int:rubric_id>/', BbByRubricView.as_view(), name='by_rubric'),
-    path('', BbIndexView.as_view(), name='index'),
+    path('', index, name='index'),
 ]
